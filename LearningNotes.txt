@@ -1,0 +1,612 @@
+This document is free of all sensitive information.
+
+A full-stack framework is able to handle everything you need to build a complete web application.
+Web2Py includes a Data Abstraction Layer (DAL) to handle SQL
+Web2Py automatically builds a web-based database administration interface
+Web frameworks are either "glued" or "full stack".
+gluon.dal and gluon.template can be used to glue the DAL or template language into another framework
+The Python locals() function returns the entire set of local variables.
+A .msi file is an installer, the "meat and bones" of a .EXE installer.
+os.unlink('filename' in Python is the same as os.remove('filename')\
+
+Agile software development is intended to give early results, by going through the software development process for a large number of small components.\
+
+Sublime Text is the raddest text editor
+	Ctrl-P is Goto Anything
+		@symbol #within_file :line_number
+	Ctrl-R is Goto Symbol (@)
+	Ctrl-D *also* selects the next occurrence of the selected word
+	Ctrl-L selects the current line
+	Ctrl-Shift-L *also* selects the end of *each* line in the selection
+	Alt-Shift-4 separates into 4 column views
+	Alt-Shift-2 separates into 2 column views
+	Alt-Shift-3 separates into 3 column views
+	Alt-Shift-5 separates into 2x2 grid
+	Alt-Shift-8 separates into 2 row views
+	Alt-Shift-9 separates into 3 row views
+	Ctrl-Shift-P opens the Command Palette for sorting and syntax selection
+		vsid -- View: Toggle Sidebar
+		vmen -- View: Toggle Menu
+	Similar words are highlighted
+
+Emacs is pretty rad too:
+	C-v page down
+	M-v page up
+	C-l scroll to middle of screen -> top of screen -> bottom of screen
+	C-n C-p C-b C-f to move characters
+	M-b M-f to move words
+	C-a C-e to move to beginning or ending of line
+	C-x 1 kills all other windows
+	C-x C-f opens a new file into a new buffer
+	C-x b switches between buffers
+	C-x 2 splits horizontally
+	C-x 3 splits vertically
+	C-h k [cmd] brings up help on command
+	C-u 0 C-l is equivalent to C-l C-l
+	M-Backspace deletes a word
+	C-k kills from cursor to end of line
+	C-d deletes the character after the cursor
+	C-<SPC> [move to new position] C-w kills text between first and second positions
+
+VIM is pretty rad and has some new things to learn:
+	* searches for the current word
+	ciw is equivalent to bcw but is repeatable
+	Ctrl-o jumps back to older location
+	Ctrl-i jumps forward to more recent location
+	:jumps displays the list of jumps that can be navigated with Ctrl-o/i
+	While in insert mode
+		Ctrl-X Ctrl-F does file path autocomplete
+		Ctrl-X Ctrl-N and Ctrl-X Ctrl-P autocomplete from current file
+		Ctrl-X Ctrl-L does line autocomplete
+		Ctrl-G j/k move up or down to same column where inserting started
+		Ctrl-E copies character from one line down
+		Ctrl-O [command] does a command and then returns to insert mode
+		Ctrl-R [register] inserts contents of register
+	To add VI-like editing to the terminal, add "set editing-mode vi" to ~/.inputrc
+	Code folding: use "za" to fold and unfold
+    To find all function definitions: :g/def\ .*
+    To open all files using glob: :argadd [glob]
+    To open all files recursively using glob: :argadd **/[glob]
+    To open all files in models or modules: :argadd mod*/[glob]
+    ":argdo :g/def\ /" - shows all occurrences of def in args
+    ":bufdo :g/def\ /" - shows all occurrences of def in buffers
+    ":windo :g/def\ /" - shows all occurrences of def in windows
+    vmap s' [Esc]`>a'[Esc]`<i'[Esc]
+    In Visual Mode:
+        a" selects up to and including "
+        i" selects up to "
+        iw selects inner word
+    To move up ignoring wrap: gk
+    To move down ignoring wrap: gl
+    Ctags:
+		Run "ctags -R ." in the project root directory to index ctags
+		Ctrl-] goes to a definition
+		Ctrl-t goes back
+		Ctrl-W } opens a preview window
+	:sp | b N, :vsp | b N -> Open a buffer in a split window
+	:vimgrep /pattern/ [files] does a find-in-files and puts it in the Quickfix window.
+		:cnext goes to the next match (also there's :cprev, :cfirst, :clast, etc.)
+		:copen opens the Quickfix window
+		note that ** stands for any number of directories
+	:make -C directory -j5 sets build directory, then viewable in quicklist
+	Vim Windows has some nice features
+		CTRL-W HJKL moves the current window to the given side of the screen, at full size
+		CTRL-W T opens a new tab page for the current window
+
+Vim Plugins has some nice features
+	:NERDTree
+		:Bookmark <name>
+		p goes to parent directory
+		cd changes current directory
+		o opens
+		<Enter> splits screen
+		s opens split screen
+		Ctrl-J and Ctrl-K go to first and last children
+		x closes parent directory
+		X closes all children directories
+		PX closes all directories
+	JEDI
+		Ctrl-Space does autocompletion (possible to disable)
+		Leader-d goes to a command
+		Leader-n lists definitions for currently selected word
+		Shift-K goes to documentation
+	Taglist
+
+
+Windows-Tab holds the secret to multiple desktops
+In Chrome, Firefox or other browsers, Ctrl-L goes to the URL address field
+	In Chrome, Ctrl-Shift-O goes to Bookmark Manager
+
+URL('f', args=['x','y'], vars=dict(z='t')) maps to
+	/TaskingSystem/default/f/x/y?z=t
+	vars -> something equals something
+	args -> goes into a function
+
+Outlook has some cool features:
+	Alt HMV[Enter] moves an email to Archived
+
+Web2py SQL has some good things to note:
+	query = (db.table_name.field_name == z) & (other)
+	rows = db(query).select()
+	first_row = db(query).select().first()
+
+Web2py_utils can be installed from
+	https://pypi.python.org/pypi/web2py_utils/0.0.13dev
+
+Python is a rad language:
+	Imports can be done by:
+		import module, where the path to module is in the variable sys.path and there exists a file __init__.py
+			__init__.py should have "from [filename] import *"
+			sys.path.insert(0, 'path')
+		module_obj = __import__('path/filename')
+			module_obj.index()
+			globals()[module_name] = module_obj
+
+HTML is cool.
+    <!DOCTYPE html><html><body>HTML goes here.</body></html>
+
+JavaScript is a rad language:
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'> Click Me! </button>
+    <p id="demo">JavaScript CAN change your life.</p>
+    <img id="image" src="pic_bulboff.gif" style="width:100px">
+    <button type="button" onclick="document.getElementById('image').src='pic_bulbon.gif'">Turn on the light</button>
+    <button type="button" onclick="document.getElementById('demo').style.fontSize='35px'">Click Me!</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='none'">Click Me!</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me!</button>
+    <script>document.getElementById("demo").innerHTML = 5 + 6;</script>
+    <script src="myScript.js"></script>
+    <script src="https://www.w3schools.com/js/myScript1.js"></script>
+    <script>document.write("Testing")</script>
+    <script>window.alert("Testing")</script>
+        NOTE: Console is accessed with F12, or Menu -> More Tools -> Developer Tools (Ctrl-Shift-I)
+    <script>var price1=5; price2=6; total=price1+price2; document.getElementById("demo").innerHTML = total;</script>
+    <script>typeof "John"</script> --> "string"
+    <script>typeof 314</script> --> "number"
+    <script>var car; typeof car</script> --> undefined
+    <script>typeof null</script> --> "object"
+    <script>typeof false</script> --> "boolean"
+    <script>typeof [1, 2, 3]</script> --> "object"
+    <script>typeof function myFunc(){}</script> --> "function"
+    <script>car={'name':'Fiat', 'model':500, drive=function(){}}</script>
+    <script>person={'firstName':'John', 'lastName':'Doe', 'fullName':function(){return self.firstName + ' ' + self.lastName;}</script>
+
+jQuery is the most popular JavaScript library.
+    <script src="path/to/jquery.js"></script> initializes
+    <script>$(document).ready(function() {/*jQuery code goes here*/})</script>
+    <script>$(function(){}) is a shortcut for the previous line
+    <script>$("#panel1").hide(100);</script> hides panel1
+    <script>$("#panel1").slideUp(1000).delay(1000).slideDown(1000);</script>
+    <script>$("#panel1").fadeToggle(1000).slideToggle(1000);</script>0
+    <script>$("#panel1").css({color:'red',fontWeight:'bold'});</script>
+    <script>$("#panel1").css({color:'red','font-weight':'bold'});</script>
+    <script>$("#panel1").html("this is my code");</script>
+    <script>$("#btn1").on('click', function() {('#panel1').slideToggle(200);});</script>
+
+Symbolic links are rad:
+	ls -lt displays information about whether a file is real or not, and how many symbolic links exist to it
+	ln /path/to/file /path/to/hardlink
+	ln -s /path/to/file_loc /path/to/softlink
+
+Linux has some rad tools:
+	grep -r "text" . | grep -v ".\{100\}" limits results to under 100 characters
+	grep -rl "text" . displays only file name
+	pushd [dir] pushes the current directory to the stack and then does a cd
+	popd [dir] pops the top directory from the stack and does a cd
+	dirs displays the directory stack
+
+Linux has some interesting file structures:
+	/ = system root directory
+	~ = current user home directory
+	/bin stands for binary, is used for system binary files like Bash
+		/usr/bin is used for binary files such as Firefox
+	/boot is used for static boot files
+	/cdrom is where a CD goes
+	/dev is the device folder, using files to represent devices
+		/dev/sda represents the first SATA drive
+	/etc contains system-wide configuration files (as opposed to user-specific config files)
+	/home contains home directories for each user
+	/lib contains libraries needed by binaries in /bin and /sbin
+		/usr/lib contains libraries needed by binaries in /usr/bin
+	/lost+found contains corrupted files from a crash
+	/media contains contains removable media devices
+	/mnt is traditionally where temporary file systems such as a Windows filesystem are mounted
+	/opt contains optional typically proprietary software packages
+	/proc contains files that represent system and process information
+	/root home directory of the root user
+	/run stores transient files that can't be deleted and thus can't be stored in /tmp
+	/sbin contains binaries intended for system administration
+	/srv data for services provided by the system
+	/tmp temporary files that may be deleted at any time
+	/usr contains locally installed programs, is normally read-only
+	/var is like /usr but is not read=only
+		/var/log contains log files
+
+
+Sed is a rad streaming file editor:
+	sed 'd' file -> deletes all lines in file
+	sed 's/one/two/' file -> replaces 'one' with 'two'
+	sed 's/\(.*\):\(.*\)/\2:\1/' changes 1:2 to 2:1
+
+CMake is a rad makefile generation library.
+	cmake_minimum_required (VERSION 2.6)
+	project (Tutorial)
+	add_executable (Tutorial tutorial.cxx)
+	
+	Variables can be defined in CMake files and then used in source code:
+	path_of_cmake_lists_file:
+		set (VARIABLE_NAME value)
+	path_of_code_file:
+		#define VARIABLE_DEF_IN_CODE @VARIABLE_NAME@
+	configure_file (path_of_cmake_lists_file path_of_code_file)
+	
+	${PROJECT_SOURCE_DIR} is the directory for which cmake was run
+	${PROJECT_BINARY_DIR} is the directory in which make was run
+	
+	Inside Library directory CMakeLists.txt:
+		add_library(LibraryName source_file_name.cxx)
+	Inside LibraryName.h:
+		prototypes for all functions in library (each should have its own file)
+	Inside top level CMakeLists.txt:
+		include_directories ("${PROJECT_SOURCE_DIR}/LibraryName")
+		add_subdirectory (LibraryName)
+		... add the executable ...
+		target_link_libraries(ProjectName LibraryName)
+	
+	Options -- in top level CMakeLists.txt
+		option (OPTION_NAME "OPTION DESCRIPTION" ON)
+		if (OPTION_NAME) [cmake code] endif (OPTION_NAME)
+	Options -- in .h.in file
+		#cmakedefine OPTION_NAME
+	Options -- in source code
+		#ifdef OPTION_NAME [code] #endif
+	
+Git is rad for version control:
+	A detached head occurs when you checkout a commit that is not the head of a specific branch.
+	Avoid detached heads by always branching before editing on a past commit
+	git submodule update --init --recursive initializes Radiant/SSM submodules
+	git checkout -b new-feature
+	git push -u origin new-feature
+	git branch -v -a gives all remote branches
+	git reset --hard HEAD undoes the last commit
+	git reset --hard HEAD~2 undoes the last two commits
+	git checkout --track [remote branch] creates a local branch by the same name and tracks
+	git checkout -- [file] undoes local changes to a file
+
+Visio is frustrating but it's life.
+	Double-click on a connector to name it
+	Stencils can be chosen from More Shapes
+	Ctrl-Shift for a magnifying glass type zoom
+	Ctrl-Shift-W zooms out to full page view
+	View -> Task Panes -> Pan and Zoom can be helpful for zooming
+	View -> Dynamic Grid can be turned off for fine-tuned moving
+	View -> AutoConnect controls automatically adding new shapes
+	Design -> Size has options for Auto Size or specific paper sizes
+
+MySQL is a semi-rad database handler.
+	mysql -u mp -D mp
+	ALTER TABLE t ADD COLUMN c_name c_type;
+	ALTER TABLE t DROP COLUMN c_name;
+	ALTER TABLE t MODIFY COLUMN c_name c_type;
+	ALTER TABLE t CHANGE COLUMN c_name new_name new_type;
+	SELECT * FROM table;
+	SELECT c_name FROM table;
+	SHOW CREATE TABLE t;
+	ALTER TABLE t DROP FOREIGN KEY fk;
+	UPDATE t1 var1 INNER JOIN t2 var2 on var1.c_name = var2.id set t1.c_name2 = t2.name;
+
+GDB has some rad debugging features:
+	set non-stop on, set target-async on --> other threads can run while you stare at GDB
+	set scheduler-locking step -> other threads cannot run even when you step
+		these options can only be set after gdb is running -> b main
+	thread # --> switch to thread number #
+	delete deletes all breakpoints
+
+Gtest is pretty rad
+	--break_on_failure
+	--gtest_filter=FIXTURENAME.TESTNAME
+
+Update Alternatives provides rad switching between versions:
+	https://askubuntu.com/questions/26498/how-to-choose-the-default-gcc-and-g-version
+	sudo update-alternatives --config g++
+
+What does it mean for an analog circuit to drive a load?
+	An analog circuit A will have some output voltage difference between two terminals. If you connect another analog circuit B to those two terminals, that circuit is called the load. The load will have
+	some current flowing through it, which current will also flow between the terminals of A. If the current between the terminals of B is too high, or the resistance on B is too low, then A may be damaged by the excess current. Suppose a voltage divider circuit with Vin=12V, R1=1kohm, R2=2kohm, and Vout over R2. Assume that R2 is only capable of handling up to 5mA of current. If the circuit is turned on, a constant 4mA will flow throughout the circuit. Now assume that a load of 100ohm is attached to the output. Now 27.5mA flows through R2, and R2 is fried. Now consider the opposite case, 
+	where a 100Mohm load is connected. Very little has changed, as 100Mohm is not far removed from no connection. Therefore, there is danger in too small of a load but not in too large of a load.
+
+There are lots of space standards that have to be followed.
+	CCSDS means Consultative Committee for Space Data Systems, formed in 1982
+
+ISO standards are important to learn.
+	ISO 9000 family is related to quality management
+	ISO 9001:2015 sets out criteria for a quality management system, focused on Plan-Do-Check-Act or PDCA
+
+CubeSats are supported by NASA and are essential to SDL's mission.
+	CSLI (CubeSat Launch Initiative) allows CubeSats to be launched cost-free as extra packages on NASA launches.
+
+Solar panels are rad.
+	Sun-synchronous orbits have 100% sun coverage.
+	Open circuit voltage is highest, but as current goes up it gradually goes down until it drops off to 0.
+	Short circuit current is highest, but as voltage goes up it gradually goes down until it drops off at 0.
+	Peak power is where voltage times current is highest, i.e. before either voltage or current drops off.
+	Solar panels are designed to survive pointing directly at the sun, at temps up to 120-130 deg C.
+	Turning on the EPS causes the temperature to drop to ~80 deg C, as current flows out of the panels.
+	6 strings by 7 cells on the solar panels -> 12 V, 3 A.
+	More strings means more amperage (strings in parallel).
+	More cells per string means more voltage (cells in series).
+	All cells have a "bypass diode", which can be turned off if the cell is broken.
+	With solar panels in different directions, you need an inverter in each direction to achive peak power.
+	Lithium batteries have higher liability and more life than normal lithium-ion batteries.
+	When batteries are cold, you have to restrict discharge.
+	Battery heater on a satellite is the last thing to go in survival mode, after communication.
+	DC-DC converters match power, i.e. 10V 1A could convert to 5V 2A.
+	28 Volts is a standard for aerospace.
+	We use only 40% of our batteries to maximize life duration.
+	Space solar panels are 31% efficient.
+	Household solar panels are 15-17% efficient.
+	Solar panels light up like LEDs when current runs through.
+
+LDAP is the Lightweight Directory Access Protocol.
+
+TCP/UDP networking is rad but complex.
+	TCP is comparable to picking up a phone and calling a friend.
+	UDP is comparable to sending a package in the mail.
+	ifconfig gives the current IP address
+	There are 65535 available ports both for UDP and TCP.
+	System ports are from 0 to 1023. Registered ports are from 1024 to 49151. Private ports are from 49152 to 65535.
+	These ports are managed by the Service Name and Transport Protocol Port Number Registry.
+		FTP uses TCP ports 20 and 21
+		SSH uses port 22
+		Telnet uses port 23
+		Simple Mail Transfer Protocol (SMTP) for sending mail uses ports 25
+		HTTP uses port 80 (web servers will send information over this port)
+		Receiving email uses ports 110 (POP3 or Post Office Protocol v.3) and 995 (POP3s which uses TLS/SSL)
+		HTTPS uses port 443
+		HTTP-ALT uses port 8080 (for secondary or alternate web servers)
+	TLS means Transport Layer Security and evolved from SSL (Secure Sockets Layer)
+	A socket is the combination of a IP address and port.
+
+Machine Learning is rad
+	Supervised learning is regression or classification
+	Unsupervised learning is identifying subsets of data
+	m is the number of training examples or data points
+	(x,y) is a training example where x is the input and y is the output
+	h (hypothesis) is the function that takes x and outputs y, output by the training set
+		linear case: h subscript theta = theta subscript 0 + theta subscript 1 times x
+		linear regression with one variable, or univariate linear regression
+	The cost function is in terms of the same variables as the hypothesis function
+	Gradiant descent finds the minimum of a cost function
+		For each iteration, take the partial derivative with respect to each variable and simultaneously update
+		'Batch' gradiant descent recalculates the hypothesis using all training data for each iteration
+		Linear algebra 'normal equations' method also solves for a minimum without need for an iterative algorithm
+
+Testing has lots of definitions
+	Functional testing tests functions by feeding input and testing the output
+	Non-functional testing tests the way a system operates, including all external stimuli
+	Regression tests are re-run after every change to ensure that previously developed software still works
+	Unit tests test individual units of source code
+	Integration tests test individual software modules as a group
+
+PySide is a rad QT editor for python
+	from PySide2.QtWidgets import QApplication, QLabel
+	app = QApplication(sys.argv)
+	label = QLabel("<font color=red size=40>Hello World!</font>")
+	label.show()
+	app.exec_()
+
+	msg_box = QMessageBox()
+	msg_box.setText("Hello World!")
+	msg_box.show()
+	sys.exit(msg_box.exec_())
+
+Ruby is a rad language similar to Python
+	$global_variable declares a global variable
+	@instance_variable declares an instance variable
+	@@class_variable declares a class variable
+	Constant is a constant
+	local_variable is a local variable
+
+	puts "text" prints text
+	puts "#{Constant} is the same as #$global" prints text
+	print <<EOF \n Text Text \n EOF prints Text Text
+	print <<`EOF` command EOF executes command
+	print "#{24*60*60}" prints 86400
+	%{This is a string}
+	%Q{This is also a string}
+	%q[This is also a string]
+	myStr = String.new("THIS IS A TEST")
+	puts myStr.downcase
+	myStr.downcase! (in-place)
+
+	class Classname ... end declares a class
+	Classname.new(params) instantiates a class
+	Classname::Constant refers to a constant in a class
+
+	def method_name(params) ... end declares a Ruby method
+	def method_name(param1 = def_param)
+	def method_name(*argv)
+	def Classname.method_name creates a "static" method
+	method_name [[param1], param2, ...] calls the Ruby method
+	Returned value is value of the last statement (nil if nothing)
+
+	alias method-name method-name
+
+	BEGIN {stuff} runs stuff before anything else
+	END {stuff} runs stuff after everything else
+
+	Base classes are Fixnum, Bignum, Float, String
+
+	Arrays can be instantiated ary = ["el1", 2, 4.5]
+	ary.each do |i| puts i end
+	puts ary.length
+	ary = Array.new(20)
+	ary = Array.new(4, "mac") = ["mac", "mac", "mac", "mac"]
+	ary = Array.new(10) { |e| e = e * 2 }
+	ary = Array.[](1, 2, 3, 4, 5)
+	ary = Array[1, 2, 3, 4, 5]
+	ary = Array(0..9)
+
+	Hashes can be instantiated hsh = { "red" => 0xf00, "green" => 0xf0}
+	hsh.each do |key, value| print key, "is ", value, "\n" end
+	hash = Hash.new
+	hash = Hash.new("month") --> Default value is "month"
+	hash = Hash.new "month" --> Default value is "month"
+	puts "#{hsh.keys}"
+	hash.[key]
+	hash.clear
+	hash.default(default = nil)
+	hash.each{|key, value| block}
+	hash.each_key{|key| block}
+	hash.has_key?(key)
+	hash.has_value?(value)
+	hash.index(value)
+	hash.select{ |key, value| block} only gives key, value for which block returns true
+	hash.store(key, value)
+
+	Ranges can be instantiated range = (1..5)
+	Ranges include both sides
+	Length of (1..5) is 5
+	Length of (0..3) is 4
+	(10..15).each do |n| print n, ' ' end
+
+	if conditional [code] elsif [code] else [code] end
+	[code] if conditional
+	unless conditional [code] else [code] end
+	[code] unless conditional
+	case [expr0] when [exprM, exprN] [code] else [code] end
+	case $age when 0..2 puts "baby" when 3..6 puts "child" else puts "adult" end
+
+	while conditional do [code] end
+	[code] while conditional
+	begin [code] end while conditional
+	until conditional do [code] end
+
+	for variable [, variable ...] in expression do [code] end
+	[expr].each do |variable[, variable...]| [code] end
+	break
+	next (like continue in a for loop)
+	redo (like continue in a while loop)
+	retry (like GOTO to before loop)
+
+	def test [code] end test {[bcode]} executes "bcode" every time test() yields
+	{|v_name[, v2]| [code]} passes variable[s] to the code in the block
+	def test(&block) block.call end is the same as def test yield end
+
+	module Modulename [code] end
+	require modulename
+	require_relative data/modulename
+	$LOAD_PATH << /path/to/files
+	class ClassName include ModuleName end
+
+	"Hello %d" % 4 = "Hello 4"
+	"Hello" <=> "Goodbye" --> 1 if greater, 0 if equal, and -1 if less than
+	"Hello".capitalize --> "HELLO"
+	"Hello".center(10) --> "  Hello   "
+	"Hello\n".chomp --> "Hello"
+	"Hello".chop --> "Hell"
+	"Hello".each(separate = $/) {|substr| block}
+	" Hello ".strip --> "Hello"
+	"Hello".swapcase --> "hELLO"
+
+	"Hello World! \0".unpack('Z*') = "Hello World! "
+	"Hello World! \0".unpack('A*') = "Hello World!"
+	"Hello World! \0 Hello!\0".unpack('Z*') = "Hello World! "
+	"Hello World! \0 Hello!\0".unpack('A*') = "Hello World! \0 Hello!"
+	"abc \0\0abc \0\0".unpack('A6Z6') = ["abc", "abc "]
+	"any string".unpack('a*') = "any string"
+	"bb".unpack('b8B8') = ["01000110", "01100010"]
+	"bb".unpack('B*') = ["0110001001100010"]
+	"bb".unpack('B4b4') = ["0110", "0100"]
+	"kk".unpack('h2h2') = ["b6", "b6"]
+	"ll".unpack('h2h2') = ["c6", "c6"]
+	"ll".unpack('H2H2') = ["6c", "6c"]
+	"mm".unpack('H2H2') = ["6d", "6d"]
+	"once".unpack('c*') = [111, 110, 99, 101]
+	"once".unpack('H*') = ["6f6e6365"]
+	"once".unpack('I*') = [1701015151]
+	"abc".unpack('aXaXaXaX') = ["a", "a", "a", "a"]
+	"abcd".unpack('a2Xa2Xa2Xa2X') = ["ab", "bc", "cd", "d"]
+	"abcdefg".unpack('axaxaX3a') = ["a", "c", "e", "c"]
+	"whole".unpack('xax2aX2aX1aX2a') = ["h", "e", "l", "l", "o"]
+	"o\0n\0c\0e\0".unpack('S*') = [111, 110, 99, 101]
+	"once".unpack('S*') = [28271, 25955]
+
+	['a', 'b', 'c'].pack('A*') = "abc"
+	[111, 110, 99, 101].pack('C*') = "once"
+	[28271, 25955].pack('S*') = "once"
+	[1701015151].pack('I') = "once"
+
+	Time.new = Time.now
+	puts "Current Time : " + Time.new.inspect
+	Time.now.{year, month, day, wday, yday, hour, min, sec, usec, zone}
+	Time.local(1..8 arguments)
+	Time.utc(1..8 arguments)
+	Time.now.to_a --> [sec, min, hour, day, month, year, wday, yday, isdst, zone]
+	Time.utc(*Time.now.to_a)
+	puts Time.strftime("%Y-%m-%d %H:%M:%S")
+	puts Time.now - 10    					# 10 seconds ago
+	puts (Time.now + 10) - (Time.now - 10) 	# 20.0
+	puts "#{}"
+
+	(1..5)			#==> 1, 2, 3, 4, 5
+	(1...5)			#==> 1, 2, 3, 4
+	('a'..'d')		#==> 'a', 'b', 'c', 'd'
+	('bar'..'bat') 	#==> 'bar', 'bas', 'bat'
+	(1..5).to_a		[1, 2, 3, 4, 5]
+	puts (1..5).include?(4)		#==> true
+	puts (1..5).min 			#==> 1
+	(0..9).reject{|i| 1 < 5}	#==> [5, 6, 7, 8, 9]
+	(1..5).each do |digit| puts "Digit #{digit}" end
+	case score when 0..40 then "Fail" when 41..100 then "Pass" else "N/A" end
+	if ((1..10) === 5) [code] end #==> if true [code] end
+
+	a = [1,2,3,4,5].collect{|x| 10*x} ==> [10,20,30,40,50]
+
+	fid = File.new("filename", "mode")
+	fid.close
+	File.open("filename", "mode") do |fid2| [processing] end
+	fid.puts("Hello World")
+	fid.sysread(20)				  #==> reads the first 20 bytes
+	fid.syswrite("ABCDEF")		  #==> writes those characters
+	fd.each_byte {|ch| puts ch }
+	modes: 'r' = read, 'r+' = write
+	arr = IO.readlines("input.txt")
+	IO.foreach("input.txt"){|block| [code]}
+	File.rename("test.txt", "text.txt")
+	File.delete("text.txt")
+	File.file?([filename])
+	File.directory?([filename])
+	puts File.size?("text.txt")
+	puts File::ctime("test.txt") # => Creation time
+	puts File::mtime("text.txt") # => Last modified time
+	puts File::atime("text.txt") # => Last accessed time
+	Dir.chdir("/usr/bin")
+	Dir.entries(Dir.pwd).join(' ')
+	Dir.foreach(Dir.pwd) do |filename| [code] end
+	Dir.mkdir("mynewdir", 755)
+	Dir.delete("mynewdir")
+	require 'tmpdir' File.new(File.join(Dir.tmpdir, "tmpfile"))
+	require 'tepmfile' f=Tempfile.new('newfile') f.close
+
+	begin [code] rescue ExceptionName [code] else [code] ensure [code] end
+	retry keyword goes back to begin statement
+	raise
+	raise "Error Message"
+	raise ExceptionName, "Error Message"
+	raise ExceptionName, "Error Message" [if/unless] condition
+	rescue Exception => e
+	puts e.message
+	puts e.backtrace.inspect
+	catch :label do [code] throw :label [code] end
+		if :label is thrown, then the catch block is ended
+	class FileSaveError < StandardError [code] end
+
+	8190, May 2019
+
+Visual Studio is something you sometimes just have to know how to do
+	Ctrl-L deletes a lines
+	Win-Alt-Up moves line up
+	Ctrl-Alt-Down selects another file
+	Ctrl-Shift-Down finds other occurrences of the selected word (VIM *)
+	Shift-Win-Down minimizes the window
+	Shift-Alt-Down makes two cursors
