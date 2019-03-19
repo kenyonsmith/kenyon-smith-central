@@ -5,4 +5,5 @@ htmlcov
 journal_actions.txt
 journal_tasks.txt
 *.ipynb
+.coverage
 
