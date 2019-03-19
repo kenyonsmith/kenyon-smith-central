@@ -1,0 +1,9 @@
+*.pyc
+__pycache__
+*.swp
+htmlcov
+journal_actions.txt
+journal_tasks.txt
+*.ipynb
+.coverage
+
