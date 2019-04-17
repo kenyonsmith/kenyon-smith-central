@@ -1,0 +1,277 @@
+set nocompatible
+
+set showmatch
+set matchtime=2
+set nowrap
+set sidescroll=20
+set nu
+set rnu
+
+set splitright
+set splitbelow
+
+set hlsearch
+
+" mappings
+let maplocalleader=","
+let mapleader=" "
+
+set nocp
+filetype on
+filetype plugin on
+
+set ignorecase
+
+augroup filetype_c
+	autocmd!
+	autocmd FileType c,cpp setlocal cindent
+	autocmd FileType c,cpp setlocal expandtab
+	autocmd FileType c,cpp setlocal ts=2
+	autocmd FileType c,cpp setlocal sw=2
+	autocmd FileType c,cpp setlocal sts=2
+augroup END
+
+augroup filetype_xml
+	autocmd!
+	autocmd FileType xml setlocal expandtab
+	autocmd FileType xml setlocal ts=2
+	autocmd FileType xml setlocal sw=2
+	autocmd FileType xml setlocal sts=2
+augroup END
+
+augroup filetype_python
+	autocmd!
+	autocmd FileType python setlocal autoindent
+augroup END
+
+augroup filetype_ruby
+	autocmd!
+	autocmd FileType ruby setlocal autoindent
+	autocmd FileType ruby setlocal ts=4
+	autocmd FileType ruby setlocal sw=4
+	autocmd FileType ruby setlocal sts=4
+augroup END
+
+" Configure project paths
+augroup project_paths
+	autocmd!
+	autocmd BufRead,BufNewFile /path/to/project setlocal path+=/path/to/project,
+        "command! FZF call fzf#run({'source': 'find /home/p6uuser/Documents/digsnet /home/p6uuser/.local/lib/python2.7/site-packages/PySide2 -type f', 'sink': 'edit'})
+
+" Switch between cpp and hpp
+" assuming cpp files are in project/src/path/to/file
+" and hpp files are in project/include/project/path/to/file
+" Requires that current buffer is saved
+nnoremap <leader>gfc :e<cr>G:put =expand('%:p')<cr>$?includec2t/src$Fhrc0y$dd:e! 0<cr>:noh<cr><c-g>/<up><up><cr>
+nnoremap <leader>gfh :e<cr>G:put =expand('%:p')<cr>$?src<cr>2bywNcwinclude/"0p$Fcrh0y$dd:e! 0<cr>:noh<cr><c-g>/<up><up><cr>
+
+" Switch between cpp and hpp in same directory
+nnoremap <leader>gfs :e<cr>G:put =expand('%:p')<cr>:s/.cpp$/.hppp/e<cr>:s/.hpp$/.cpp/e<cr>:s/.hppp$/.hpp/e<cr>0y$dd:e! 0<cr>:noh<cr><c-g>
+
+nnoremap <leader>- ddp
+nnoremap <leader>_ ddkP
+
+" Shortcuts to open vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Quickfix and vimgrep shortcuts
+nnoremap <leader>co :copen<cr>
+nnoremap <leader>cc :cclose<cr>
+nnoremap <leader>cn :cnext<cr>
+nnoremap <leader>cp :cprev<cr>
+nnoremap <leader>gg :vimgrep
+nnoremap <leader>gc :vimgrep // src/**/*.cpp <c-Left><Left><Left>
+nnoremap <leader>gh :vimgrep // include/radiant/**/*.hpp <c-Left><Left><Left>
+nnoremap <leader>g*c *:vimgrep /// src/**/*.cpp<cr>
+nnoremap <leader>g*h *:vimgrep /// include/radiant/**/*.hpp<cr>
+nnoremap <leader>g/c :vimgrep /// src/**/*.cpp<cr>
+nnoremap <leader>g/h :vimgrep /// include/radiant/**/*.hpp<cr>
+
+iabbrev @@ kenyon.smith@sdl.usu.edu
+iabbrev kk Kenyon Smith
+
+" Skillfully exit insert mode
+inoremap jk <esc>
+
+" C-like handling of braces
+inoremap j{ {<esc>Yppr}ks<space><space>
+inoremap j( ()<esc>i
+inoremap j[ []<esc>i
+inoremap jb {<esc>Y)Pr}>%<<%<<%A
+
+" Make it harder to join two lines
+nnoremap <leader>J J
+nnoremap J <nop>
+
+" Mappings to change up to next underscore
+nnoremap cie ct_
+nnoremap cii F_lct_
+
+" Mappings to (s)urround visual with some character
+vnoremap s<Space> <esc>`>a<Space><esc>`<i<Space><esc>
+vnoremap s_ <esc>`>a_<esc>`<i_<esc>
+vnoremap s' <esc>`>a'<esc>`<i'<esc>
+vnoremap s" <esc>`>a"<esc>`<i"<esc>
+vnoremap s( <esc>`>a)<esc>`<i(<esc>
+vnoremap s[ <esc>`>a]<esc>`<i[<esc>
+vnoremap s{ <esc>`>a}<esc>`<i{<esc>
+
+" Mapping to (s)urround visual as with a dictionary
+vnoremap sd <esc>`>a"]<esc>`<i["<esc>
+
+" Mapping to find visually selected text
+vnoremap s* y/"
+
+" Mapping to find visually selected text
+vnoremap sp "_dP
+
+" Mappings to replace current block of text with yanked text
+nnoremap <leader>pw "_dwP`.
+nnoremap <leader>piw "_diwP`.
+nnoremap <leader>pW "_dWP`.
+nnoremap <leader>p$ "_d$p`.
+nnoremap <leader>pe "_deP`.
+
+" Mapping to insert pdb call
+nnoremap <leader>pdb Oimport pdb; pdb.set_trace()<esc>
+nnoremap <leader>pf Oprintf("\n"); fflush(NULL);<esc>F";a
+
+" Mappings to (s)urround a single character
+nnoremap <leader>s<Space> i<Space><esc>la<Space><esc>h
+nnoremap <leader>s' i'<esc>la'<esc>h
+nnoremap <leader>s" i"<esc>la"<esc>h
+nnoremap <leader>s( i(<esc>la)<esc>h
+nnoremap <leader>s[ i[<esc>la]<esc>h
+nnoremap <leader>s{ i{<esc>la}<esc>h
+
+" Mapping to surround with blank lines
+nnoremap <leader>s mVO<esc>jo<esc>`V
+
+" Mappings to (d)elete surrounding characters
+nnoremap <leader>d<Space> mkF<Space>xf<Space>x`kh
+
+" Mappings to replace surrounding characters with other surrounding characters
+nnoremap <leader>r([ mkF(r[f)r]`k
+nnoremap <leader>r({ mkF(r{f)r}`k
+nnoremap <leader>r[( mkF[r(f]r)`k
+nnoremap <leader>r[{ mkF[r{f]r}`k
+nnoremap <leader>r{( mkF{r(f}r)`k
+nnoremap <leader>r{[ mkF{r[f}r]`k
+nnoremap <leader>r'" mkF'r"`kf'r"`k
+nnoremap <leader>r"' mkF"r'`kf"r'`k
+
+" Mappings to switch between class and dictionary notation in Python
+nnoremap <leader>r.d mkF.s["<esc>`kea"]<esc>`k
+nnoremap <leader>rd. mkF[2s.<esc>`kf"2x`k
+
+" Mappings to easily go to prev or next tags
+nnoremap <leader>[ :tp<cr>
+nnoremap <leader>] :tn<cr>
+
+" Quick switch buffer between modifiable and non-modifiable
+nnoremap <leader>ro :setlocal modifiable!<cr>
+
+" Quick search for second most recent search
+nnoremap <leader>/ /<up><up><cr>
+
+" Mapping to yank the current line and increment the next number
+nnoremap <leader>a mkYp`kj<c-a>
+
+" where the tags are
+set tags+=~/.vim/tags
+set tags+=tags;
+
+" Mappings to scroll horizontally easier
+nnoremap ZL zL
+nnoremap ZH zH
+
+" Copy location to clipboard for GDB breakpoint
+command! Xg :let @+ = 'b ' . expand('%:p') . ':' . line('.')
+
+" Handle plugins
+" NERDTree
+set runtimepath+=~/.vim/bundle/nerdtree
+nnoremap <leader>nn :NERDTreeToggle<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
+
+" Taglist
+set runtimepath+=~/.vim/bundle/taglist
+nnoremap <leader>tt :TlistToggle<cr>
+nnoremap <leader>tj ]]zz:TlistHighlightTag<cr>
+nnoremap <leader>tk [[zz:TlistHighlightTag<cr>
+nnoremap <leader>tf :TlistHighlightTag<cr>
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Display_Tag_Scope=0
+
+" Fzf
+set runtimepath+=~/.fzf
+nnoremap <leader>f :FZF<cr>
+
+" Ctrl-p
+set runtimepath+=~/.vim/bundle/ctrlp
+
+" Fugitive
+set runtimepath+=~/.vim/bundle/vim-fugitive
+
+" YouCompleteMe
+set runtimepath+=~/.vim/bundle/YouCompleteMe
+
+" Leader map
+" a Duplicate line and increment number
+" cc Close Quickfix
+" cn Next in Quickfix
+" co Open Quickfix
+" cp Prev in Quickfix
+" d<Space> Delete surrounding quotes
+" ev Edit vimrc
+" f Bring up fuzzy finder
+" gfc Go to corresponding hpp file
+" gfh Go to corresponding cpp file
+" gc Vimgrep in .cpp files in src folder
+" gg Start vimgrep
+" gh Vimgrep in .hpp files in include/radiant folder
+" g/c Do vimgrep of last search in .cpp files
+" g/h Do vimgrep of last search in .hpp files
+" g*c Do vimgrep of current word in .cpp files
+" g*h Do vimgrep of current word in .hpp files
+" J Join two lines
+" nf Find current file in NERDTree
+" nn Toggle NERDTree window
+" pdb Insert Python PDB call above current line
+" pe Replace end of word with yanked text
+" pf Insert C++ printf() call above current line with flush
+" piw Replace inner word with yanked text
+" pw Replace word with yanked text
+" pW Replace whole word with yanked text
+" p$ Replace end of line with yanked text
+" ro Toggle read-only flag for current file
+" r([ Replace surrounding parentheses with brackets
+" r({ Replace surrounding parentheses with braces
+" r[( Replace surrounding brackets with parentheses
+" r[{ Replace surrounding brackets with braces
+" r{( Replace surrounding braces with parentheses
+" r{[ Replace surrounding braces with brackets
+" r'" Replace surrounding single quotes with double quotes
+" r"' Replace surrounding double quotes with single quotes
+" r.d Replace dot construct with Python dictionary key lookup
+" rd. Replace Python dictionary key lookup with dot construct
+" sv Source Vimrc
+" s<Space> Surround current character with spaces
+" s<CR> Surround current line with blank lines
+" s' Surround current character with single quotes
+" s" Surround current character with double quotes
+" s( Surround current character with parentheses
+" s[ Surround current character with brackets
+" s{ Surround current character with braces
+" tf Highlight current scope in Taglist
+" tj Move down one line in taglist and go to tag
+" tk Move up one line in taglist and go to tag
+" tt Toggle taglist window
+" - Move line one line up
+" _ Move line one line down
+" [ Jump to previous tag
+" ] Jump to next tag
+" / Redo second most recent search
+"
+" Marks kv are reserved for vimrc
