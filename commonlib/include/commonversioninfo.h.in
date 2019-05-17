@@ -1,0 +1,23 @@
+/**
+* @file commonversioninfo.h.in
+*
+* @brief CMake helper file that generates git branch info
+*
+* Revision History:
+* May 17, 2019  K. Smith   / Initial Implementation
+*/
+
+#ifndef GENERATED_TOOLS_COMMON_VERSION_H
+#define GENERATED_TOOLS_COMMON_VERSION_H
+
+#define GEN_BRANCH "@GIT_BRANCH@"
+#define GEN_COMMIT_HASH "@GIT_COMMIT_HASH@"
+
+#define GEN_LATEST_TAG "@GIT_LATEST_TAG@"
+#define GEN_COMMIT_COUNT "@GIT_COMMIT_COUNT@"
+
+#define SAMPLE_BUILD_TIME "@GIT_BUILD_TIME@"
+
+/* instructions for this found at http://xit0.org/2013/04/cmake-use-git-branch-and-commit-details-in-project/ */
+
+#endif /* GENERATED_TOOLS_COMMON_VERSION_H */
